@@ -72,7 +72,7 @@ TEST(LastError, Threaded) {
     auto asyncStatusSetter = std::thread([&] {
         RdmaError threadRetrievedStatus;
         GetLastRdmaError(threadRetrievedStatus);
-        EXPECT_EQ(threadRetrievedStatus.GetCode(), 0);
+        EXPECT_EQ(threadRetrievedStatus.GetCode(), 1);
         EXPECT_EQ(threadRetrievedStatus.filename, (const char*)nullptr);
 
         RdmaError threadTestStatus;
